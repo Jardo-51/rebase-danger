@@ -7,16 +7,9 @@ set -e
 mkdir -p target/base-repo
 cd target/base-repo/
 
-git init
+git init --bare
 git config user.name Someone
 git config user.email someone@example.com
-
-echo "Apple" >> fruits.txt
-echo "Bannana" >> fruits.txt
-echo "Cherry" >> fruits.txt
-
-git add fruits.txt
-git commit -m "Initial commit"
 
 # Create Alice's clone
 
@@ -25,6 +18,18 @@ git clone base-repo/ clone-alice
 cd clone-alice/
 git config user.name Alice
 git config user.email alice@example.com
+
+# Alice does some initial work
+
+echo "Apple" >> fruits.txt
+echo "Bannana" >> fruits.txt
+echo "Cherry" >> fruits.txt
+
+git add fruits.txt
+git commit -m "Initial commit"
+git push
+
+# Now alice starts working on in a feature branch
 
 git switch -c feature/fruits-d-to-f
 git push --set-upstream origin feature/fruits-d-to-f
