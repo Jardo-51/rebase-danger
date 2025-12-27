@@ -6,10 +6,7 @@ set -e
 
 mkdir -p target/base-repo
 cd target/base-repo/
-
 git init --bare
-git config user.name Someone
-git config user.email someone@example.com
 
 # Create Alice's clone
 
@@ -19,33 +16,27 @@ cd clone-alice/
 git config user.name Alice
 git config user.email alice@example.com
 
-# Alice creates initial project skeleton
+# Alice does some initial work
 
-echo "A:" >> fruits.txt
-echo "B:" >> fruits.txt
-echo "C:" >> fruits.txt
-echo "D:" >> fruits.txt
-echo "E:" >> fruits.txt
-echo "F:" >> fruits.txt
-echo "G:" >> fruits.txt
-echo "H:" >> fruits.txt
-echo "I:" >> fruits.txt
+echo "Apple" >> fruits.txt
+echo "Bannana" >> fruits.txt
+echo "Cherry" >> fruits.txt
 
 git add fruits.txt
 git commit -m "Initial commit"
 git push
 
-# Now Alice starts working on in a feature branch
+# Now alice starts working on in a feature branch
 
-git switch -c feature/fruits-a-to-c
-git push --set-upstream origin feature/fruits-a-to-c
+git switch -c feature/fruits-d-to-f
+git push --set-upstream origin feature/fruits-d-to-f
 
-sed -i 's/^A:$/A: Apple/' fruits.txt
-sed -i 's/^B:$/B: Bannana/' fruits.txt
-sed -i 's/^C:$/C: Cherry/' fruits.txt
+echo "Date" >> fruits.txt
+echo "Elderberry" >> fruits.txt
+echo "Fig" >> fruits.txt
 
 git add fruits.txt
-git commit -m "Add fruits from A to C"
+git commit -m "Add fruits from D to F"
 git push
 
 # Create Bob's clone
@@ -56,16 +47,16 @@ cd clone-bob/
 git config user.name Bob
 git config user.email bob@example.com
 
-git switch -c feature/fruits-d-to-i
+git switch -c feature/fruits-g-to-l
 
-# Bob adds fruits D and E (F is work in progress)
+# Bob adds fruits G and H (I is work in progress)
 
-sed -i 's/^D:$/D: Date/' fruits.txt
-sed -i 's/^E:$/E: Elderberry/' fruits.txt
+echo "Grape" >> fruits.txt
+echo "Honeydew" >> fruits.txt
 
 git add fruits.txt
-git commit -m "Add fruits D and E"
-git push --set-upstream origin feature/fruits-d-to-i
+git commit -m "Add fruits G and H"
+git push --set-upstream origin feature/fruits-g-to-l
 
 # Create Carl's clone (he will help Bob with his branch)
 
@@ -75,12 +66,14 @@ cd clone-carl/
 git config user.name Carl
 git config user.email carl@example.com
 
-git switch feature/fruits-d-to-i
+git switch feature/fruits-g-to-l
 
-sed -i 's/^G:$/G: Grape/' fruits.txt
-sed -i 's/^H:$/H: Honeydew/' fruits.txt
-sed -i 's/^I:$/I: Indian fig/' fruits.txt
+# Carl adds fruits from J to L
+
+echo "Jackfruit" >> fruits.txt
+echo "Kiwi" >> fruits.txt
+echo "Lemon" >> fruits.txt
 
 git add fruits.txt
-git commit -m "Add fruits from G to I"
+git commit -m "Add fruits from J to L"
 git push

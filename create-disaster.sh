@@ -6,7 +6,7 @@ set -e
 
 cd target/clone-alice/
 git switch master
-git merge feature/fruits-a-to-c
+git merge feature/fruits-d-to-f
 git push
 
 # Bob decides to rebase and merge
@@ -22,4 +22,4 @@ git rebase master
 git push -f # needs to use force
 
 git switch master
-git merge feature/fruits-d-to-i
+git merge feature/fruits-g-to-l
