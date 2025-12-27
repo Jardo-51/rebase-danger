@@ -15,10 +15,13 @@ cd ../clone-bob/
 git switch master
 git pull
 git switch -
-git rebase master
+git rebase master || true # expected failre due to conflict
 
-# TODO: resolve conflict
+# Bob resolves the conflict and pushes
 
+sed '/^<<<<<<< /d;/^=======/d;/^>>>>>>> /d' fruits.txt > fruits.txt.resolved && mv fruits.txt.resolved fruits.txt
+git add fruits.txt
+git rebase --continue
 git push -f # needs to use force
 
 # Bob finishes his work
