@@ -2,9 +2,18 @@
 
 set -e
 
-# Alice is done with her work, she merges her branch
+# Alice is finishes with her work and merges to main
 
 cd target/clone-alice/
+
+echo "Blueberry" >> b-fruits.txt
+echo "Beetroot" >> b-vegetables.txt
+
+git add b-fruits.txt
+git add b-vegetables.txt
+git commit -m "Add remaining fruits and vegetables for B"
+git push
+
 git switch master
 git merge feature/b
 git push
@@ -20,6 +29,7 @@ git push -f # needs to use force
 
 # Bob finishes his work
 
+echo "Coconut" >> c-fruits.txt
 echo "Cranberry" >> c-fruits.txt
 
 git add c-fruits.txt

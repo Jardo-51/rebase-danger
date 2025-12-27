@@ -46,7 +46,7 @@ echo "Bell pepper" >> b-vegetables.txt
 
 git add b-fruits.txt
 git add b-vegetables.txt
-git commit -m "Add fruits and vegetables for B"
+git commit -m "Add fruits and vegetables for B (WIP)"
 git push
 
 # Create Bob's clone
@@ -59,13 +59,14 @@ git config user.email bob@example.com
 
 git switch -c feature/c
 
-# Bob adds fruits G and H (I is work in progress)
+# Bob adds 1 fruit and 1 vegetable for C
 
 echo "Cherry" >> c-fruits.txt
-echo "Coconut" >> c-fruits.txt
+echo "Carrot" >> c-vegetables.txt
 
 git add c-fruits.txt
-git commit -m "Add fruits for C"
+git add c-vegetables.txt
+git commit -m "Add fruits and vegetables for C (WIP)"
 git push --set-upstream origin feature/c
 
 # Create Carl's clone (he will help Bob with his branch, he will do vegetables for C)
@@ -80,10 +81,9 @@ git switch feature/c
 
 # Carl adds vegetables for C
 
-echo "Carrot" >> c-vegetables.txt
 echo "Cauliflower" >> c-vegetables.txt
 echo "Cucumber" >> c-vegetables.txt
 
 git add c-vegetables.txt
-git commit -m "Add vegetables for C"
+git commit -m "Add remaining vegetables for C"
 git push
