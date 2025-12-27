@@ -58,16 +58,15 @@ git config user.email carl@example.com
 
 git switch feature/fruits-g-to-l
 
-# Bob adds fruits from G to I
+# Bob adds fruits G and H (I is work in progress)
 
 cd ../clone-bob
 
 echo "Grape" >> fruits.txt
 echo "Honeydew" >> fruits.txt
-echo "Indian fig" >> fruits.txt
 
 git add fruits.txt
-git commit -m "Add fruits from G to I"
+git commit -m "Add fruits G and H"
 git push
 
 # Carl adds fruits from J to L
