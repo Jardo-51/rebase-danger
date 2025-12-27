@@ -57,6 +57,14 @@ git config user.name Bob
 git config user.email bob@example.com
 
 git switch -c feature/fruits-d-to-i
+
+# Bob adds fruits D and E (F is work in progress)
+
+sed -i 's/^D:$/D: Date/' fruits.txt
+sed -i 's/^E:$/E: Elderberry/' fruits.txt
+
+git add fruits.txt
+git commit -m "Add fruits D and E"
 git push --set-upstream origin feature/fruits-d-to-i
 
 # Create Carl's clone (he will help Bob with his branch)
@@ -69,25 +77,10 @@ git config user.email carl@example.com
 
 git switch feature/fruits-d-to-i
 
-# Bob adds fruits D and E (F is work in progress)
-
-cd ../clone-bob
-
-sed -i 's/^D:$/D: Date/' fruits.txt
-sed -i 's/^E:$/E: Elderberry/' fruits.txt
-
-git add fruits.txt
-git commit -m "Add fruits D and E"
-git push
-
-# Carl adds fruits from G to I
-
-cd ../clone-carl
-
 sed -i 's/^G:$/G: Grape/' fruits.txt
 sed -i 's/^H:$/H: Honeydew/' fruits.txt
 sed -i 's/^I:$/I: Indian fig/' fruits.txt
 
 git add fruits.txt
 git commit -m "Add fruits from G to I"
-# no push yet
+git push
