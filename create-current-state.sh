@@ -38,11 +38,9 @@ git push --set-upstream origin feature/b
 
 echo "Banana" >> b-fruits.txt
 echo "Blueberry" >> b-fruits.txt
-echo "Blackberry" >> b-fruits.txt
 
 echo "Broccoli" >> b-vegetables.txt
 echo "Beetroot" >> b-vegetables.txt
-echo "Bell pepper" >> b-vegetables.txt
 
 git add b-fruits.txt
 git add b-vegetables.txt

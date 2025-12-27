@@ -6,8 +6,8 @@ set -e
 
 cd target/clone-alice/
 
-echo "Blueberry" >> b-fruits.txt
-echo "Beetroot" >> b-vegetables.txt
+echo "Blackberry" >> b-fruits.txt
+echo "Bell pepper" >> b-vegetables.txt
 
 git add b-fruits.txt
 git add b-vegetables.txt
